@@ -3,8 +3,6 @@ package ru.netology.manager;
 import ru.netology.domain.Ticket;
 import ru.netology.repository.TicketRepository;
 
-import java.util.Arrays;
-
 public class TicketManager {
     private TicketRepository repository;
 
@@ -23,16 +21,11 @@ public class TicketManager {
                 result = tmp;
             }
         }
-        Arrays.sort(result);
         return result;
     }
 
     public boolean matches(Ticket ticket, String from, String to) {
-        if (ticket.getDepartureAirport().contains(from) && ticket.getArrivalAirport().contains(to)) {
-            return true;
-        } else {
-            return false;
-        }
+        return ticket.getDepartureAirport().contains(from) && ticket.getArrivalAirport().contains(to);
     }
 
     public void add(Ticket ticket) {
